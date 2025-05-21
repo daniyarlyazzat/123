@@ -13,61 +13,49 @@
     body {
       margin: 0;
       font-family: 'Comfortaa', cursive;
-      background: url('задний.png') no-repeat center center fixed;
+      background: url('задний.png') center center fixed;
       background-size: cover;
       color: #333;
     }
     .container {
       max-width: 850px;
       margin: auto;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255,255,255,0.95);
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      padding: 40px 25px;
+      padding: 30px 20px;
       text-align: center;
       position: relative;
     }
     h1 {
-      font-size: 3.5em;
+      font-size: 2.5em;
       color: #7D3B1D;
-      animation: fadeInDown 2s ease;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
-    p1 {
-      font-size: 1.7em;
+    p, .custom-text {
+      font-size: 1.2em;
       color: #7D3B1D;
       line-height: 1.6;
       margin: 15px 0;
-      display: block;
-      animation: fadeIn 1.5s ease;
-    }
-    p2 {
-      font-size: 1.7em;
-      color: #7D3B1D;
-      line-height: 1.6;
-      margin: 15px 0;
-      display: block;
-      animation: fadeIn 1.5s ease;
     }
     .hero-image {
-      width: 65%;
+      width: 100%;
+      max-width: 500px;
       border-radius: 15px;
-      margin: 30px 0 20px;
-      animation: zoomIn 2s ease;
+      margin: 25px 0;
     }
     .form-section {
-      margin-top: 50px;
+      margin-top: 40px;
       background: #fff;
       border-radius: 15px;
-      padding: 30px;
+      padding: 25px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      animation: fadeInUp 2s ease;
     }
     input, select {
-      padding: 12px;
+      padding: 14px;
       margin: 10px auto;
       width: 90%;
-      max-width: 300px;
+      max-width: 350px;
       border-radius: 10px;
       border: 1px solid #ccc;
       font-size: 1em;
@@ -75,14 +63,14 @@
       display: block;
     }
     button {
-      padding: 12px 24px;
+      padding: 14px 28px;
       background-color: #8b0000;
       color: white;
       border: none;
       border-radius: 10px;
       font-size: 1em;
       cursor: pointer;
-      font-family: 'Comfortaa', cursive;
+      margin-top: 10px;
     }
     .music-button {
       position: absolute;
@@ -97,56 +85,28 @@
       height: 40px;
     }
     .timer {
-      font-size: 1.3em;
+      font-size: 1.1em;
       margin-top: 25px;
       color: #8b0000;
       font-weight: bold;
-      animation: fadeIn 1.5s ease;
     }
     a.map-link img {
-      width: 90px;
-      margin-top: 0px;
+      width: 80px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* 📱 Responsive дизайн */
-    @media (max-width: 300px) {
+    @media (max-width: 768px) {
       h1 {
-        font-size: 2em;
+        font-size: 1.7em;
       }
-      p1, p2, p {
-        font-size: 1.2em;
-      }
-      input, select {
-        font-size: 1.1em;
-        padding: 14px;
-        width: 100%;
-      }
-      button {
-        font-size: 1.1em;
-        padding: 14px 28px;
+      p, .custom-text {
+        font-size: 1em;
       }
       .container {
         padding: 20px 15px;
       }
-      .hero-image {
-        width: 100%;
+      .music-button img {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
@@ -160,24 +120,28 @@
     <img id="music-icon" src="pause.png" alt="Музыка">
   </button>
 
-  <h1>Құрметті ағайын-туыс, құда-жекжат, ардақты дос-жарандар!</h1>
- <br> <p1>Сіздерді ұлымыз <strong>Данияр</strong> мен келініміз <strong>Ляззаттың</strong><br>
-    құдалық тойы, бата алу рәсіміне арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз.</p1><br><br>
-  <p2><strong>Той салтанаты:</strong> 2025 жылғы 13 шілде, сағат 17:00</p2>
+  <br><br><h1>Құрметті ағайын-туыс, құда-жекжат, ардақты дос-жарандар!</h1>
+
+  <p class="custom-text">Сіздерді ұлымыз <strong>Данияр</strong> мен келініміз <strong>Ляззаттың</strong><br>
+    құдалық тойы, бата алу рәсіміне арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз.</p>
+
+  <p class="custom-text"><strong>Той салтанаты:</strong> 2025 жылғы 13 шілде, сағат 17:00</p>
+
   <img src="Текст абзаца.png" class="hero-image" alt="Сурет">
-  <br><p1><strong>Мекенжайы:</strong> Талдықорған қаласы, Grand Hall мейрамханасы</p1>
+
+  <p class="custom-text"><strong>Мекенжайы:</strong> Талдықорған қаласы, Grand Hall мейрамханасы</p>
 
   <p><strong>Картаны көру:</strong></p>
   <a class="map-link" href="https://2gis.kz/almaty/firm/70000001083471157?m=78.422149%2C45.016277%2F16" target="_blank">
     <img src="123.png" alt="Карта">
   </a>
 
- <br><br><p2><strong>Той иелері:</strong> Ормановтар әулеті</p2>
+  <p class="custom-text"><strong>Той иелері:</strong> Ормановтар әулеті</p>
 
   <div class="form-section">
     <h2>Қатысатыңыз туралы жазыңыз</h2>
     <form id="guestForm">
-      <input type="text" name="name" id="name" placeholder="Толық аты-жөніңіз жазыңыз" required>
+      <input type="text" name="name" id="name" placeholder="Толық аты-жөніңіз" required>
       <select name="status" id="status" required>
         <option value="" disabled selected>Таңдаңыз:</option>
         <option>Өзім барамын</option>
@@ -186,16 +150,14 @@
       </select>
       <button type="submit">Жіберу ✅</button>
     </form>
-    <p id="responseMessage" style="color: green; font-weight: bold; display: none; margin-top: 10px;">
-      ✅ Жауап сәтті жіберілді!
-    </p>
+    <p id="responseMessage" style="color: green; font-weight: bold; display: none;">✅ Жауап сәтті жіберілді!</p>
   </div>
 
   <div class="timer" id="countdown">Қалған уақыт есептелуде...</div>
 </div>
 
 <script>
-  // Автоойнату + музыка батырмасы
+  // Музыка батырмасы
   window.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bg-music");
     const icon = document.getElementById("music-icon");
@@ -221,7 +183,7 @@
     };
   });
 
-  // Форма жіберу
+  // Google Sheets формасы
   document.getElementById("guestForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const name = document.getElementById("name").value;
