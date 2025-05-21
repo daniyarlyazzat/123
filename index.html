@@ -84,11 +84,39 @@
       width: 40px;
       height: 40px;
     }
-    .timer {
-      font-size: 1.1em;
-      margin-top: 25px;
-      color: #8b0000;
+    .timer-container {
+      text-align: center;
+      margin-top: 30px;
+      font-family: 'Comfortaa', cursive;
+    }
+
+    .timer-title {
+      font-size: 1.3em;
+      color: #7D3B1D;
+      margin-bottom: 10px;
+    }
+
+    .timer-box {
+      display: inline-flex;
+      gap: 10px;
+      justify-content: center;
       font-weight: bold;
+    }
+
+    .time-block {
+      background-color: #fff3e6;
+      border-radius: 10px;
+      padding: 15px 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      color: #8b0000;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
     }
     a.map-link img {
       width: 80px;
@@ -113,6 +141,15 @@
 
   <img src="Текст абзаца.png" class="hero-image" alt="Сурет">
   <p class="custom-text"><strong>Той салтанаты:</strong> 2025 жылғы 13 шілде, сағат 17:00</p>
+  <img src="2.png" alt="Календарь" style="
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  ">
   <p class="custom-text"><strong>Мекенжайы:</strong> Талдықорған қаласы, Grand Hall мейрамханасы</p>
 
   <p><strong>Картаны көру:</strong></p>
@@ -137,7 +174,15 @@
     <p id="responseMessage" style="color: green; font-weight: bold; display: none;">✅ Жауап сәтті жіберілді!</p>
   </div>
 
-  <div class="timer" id="countdown">Қалған уақыт есептелуде...</div>
+ <div class="timer-container">
+    <div class="timer-title">Қалған уақыт:</div>
+    <div class="timer-box">
+      <div class="time-block" id="days">00 күн</div>
+      <div class="time-block" id="hours">00 сағат</div>
+      <div class="time-block" id="minutes">00 минут</div>
+      <div class="time-block" id="seconds">00 секунд</div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -188,20 +233,34 @@
   });
 
   // Таймер
-  const countdownEl = document.getElementById("countdown");
+ const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
   const targetDate = new Date("2025-07-13T17:00:00").getTime();
+
   setInterval(() => {
     const now = new Date().getTime();
     const diff = targetDate - now;
+
     if (diff < 0) {
-      countdownEl.innerText = "Той басталды!";
+      daysEl.innerText = "0 күн";
+      hoursEl.innerText = "0 сағат";
+      minutesEl.innerText = "0 минут";
+      secondsEl.innerText = "0 секунд";
       return;
     }
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    countdownEl.innerText = `Қалған уақыт: ${days} күн ${hours} сағат ${minutes} минут ${seconds} секунд`;
+
+    daysEl.innerText = `${days} күн`;
+    hoursEl.innerText = `${hours} сағат`;
+    minutesEl.innerText = `${minutes} минут`;
+    secondsEl.innerText = `${seconds} секунд`;
   }, 1000);
 </script>
 </body>
